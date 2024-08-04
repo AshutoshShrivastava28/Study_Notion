@@ -19,7 +19,7 @@ export default function ViewCourse() {
   const [reviewModal, setReviewModal] = useState(false)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const courseData = await getFullDetailsOfCourse(courseId, token)
       // console.log("Course Data here... ", courseData.courseDetails)
       dispatch(setCourseSectionData(courseData.courseDetails.courseContent))
@@ -31,7 +31,7 @@ export default function ViewCourse() {
       })
       dispatch(setTotalNoOfLectures(lectures))
     })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [])
 
   return (

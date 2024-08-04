@@ -20,7 +20,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   } = useSelector((state) => state.viewCourse)
 
   useEffect(() => {
-    ;(() => {
+    ; (() => {
       if (!courseSectionData.length) return
       const currentSectionIndx = courseSectionData.findIndex(
         (data) => data._id === sectionId
@@ -35,7 +35,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
       setActiveStatus(courseSectionData?.[currentSectionIndx]?._id)
       setVideoBarActive(activeSubSectionId)
     })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [courseSectionData, courseEntireData, location.pathname])
 
   return (
@@ -83,11 +83,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     Lession {course?.subSection.length}
                   </span> */}
                   <span
-                    className={`${
-                      activeStatus === course?.sectionName
+                    className={`${activeStatus === course?.sectionName
                         ? "rotate-0"
                         : "rotate-180"
-                    } transition-all duration-500`}
+                      } transition-all duration-500`}
                   >
                     <BsChevronDown />
                   </span>
@@ -99,11 +98,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                 <div className="transition-[height] duration-500 ease-in-out">
                   {course.subSection.map((topic, i) => (
                     <div
-                      className={`flex gap-3  px-5 py-2 ${
-                        videoBarActive === topic._id
+                      className={`flex gap-3  px-5 py-2 ${videoBarActive === topic._id
                           ? "bg-yellow-200 font-semibold text-richblack-800"
                           : "hover:bg-richblack-900"
-                      } `}
+                        } `}
                       key={i}
                       onClick={() => {
                         navigate(
@@ -115,7 +113,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                       <input
                         type="checkbox"
                         checked={completedLectures.includes(topic?._id)}
-                        onChange={() => {}}
+                        onChange={() => { }}
                       />
                       {topic.title}
                     </div>

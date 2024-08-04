@@ -56,7 +56,7 @@ export default function CourseInformationForm() {
     }
     getCategories()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [])
 
   const isFormUpdated = () => {
@@ -70,7 +70,7 @@ export default function CourseInformationForm() {
       currentValues.courseBenefits !== course.whatYouWillLearn ||
       currentValues.courseCategory._id !== course.category._id ||
       currentValues.courseRequirements.toString() !==
-        course.instructions.toString() ||
+      course.instructions.toString() ||
       currentValues.courseImage !== course.thumbnail
     ) {
       return true

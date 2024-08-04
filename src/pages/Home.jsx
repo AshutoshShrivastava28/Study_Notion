@@ -185,6 +185,9 @@ function Home() {
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners
         </h1>
+      </div>
+
+      <div className="mx-auto my-20 w-10/12 gap-8 bg-richblack-900 text-white">
         <ReviewSlider />
       </div>
 

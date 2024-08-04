@@ -1,40 +1,39 @@
-import React from "react"
-import copy from "copy-to-clipboard"
-import { toast } from "react-hot-toast"
-import { BsFillCaretRightFill } from "react-icons/bs"
-import { FaShareSquare } from "react-icons/fa"
-import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import React from "react";
+import copy from "copy-to-clipboard";
+import { toast } from "react-hot-toast";
+import { BsFillCaretRightFill } from "react-icons/bs";
+import { FaShareSquare } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { addToCart } from "../../../slices/cartSlice"
-import { ACCOUNT_TYPE } from "../../../utils/constants"
-
+import { addToCart } from "../../../slices/cartSlice";
+import { ACCOUNT_TYPE } from "../../../utils/constants";
 
 function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
-  const { user } = useSelector((state) => state.profile)
-  const { token } = useSelector((state) => state.auth)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.profile);
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     thumbnail: ThumbnailImage,
     price: CurrentPrice,
     _id: courseId,
-  } = course
+  } = course;
 
   const handleShare = () => {
-    copy(window.location.href)
-    toast.success("Link copied to clipboard")
-  }
+    copy(window.location.href);
+    toast.success("Link copied to clipboard");
+  };
 
   const handleAddToCart = () => {
     if (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) {
-      toast.error("You are an Instructor. You can't buy a course.")
-      return
+      toast.error("You are an Instructor. You can't buy a course.");
+      return;
     }
     if (token) {
-      dispatch(addToCart(course))
-      return
+      dispatch(addToCart(course));
+      return;
     }
     setConfirmationModal({
       text1: "You are not logged in!",
@@ -43,8 +42,8 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
       btn2Text: "Cancel",
       btn1Handler: () => navigate("/login"),
       btn2Handler: () => setConfirmationModal(null),
-    })
-  }
+    });
+  };
 
   // console.log("Student already enrolled ", course?.studentsEnroled, user?._id)
 
@@ -90,9 +89,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
           </div>
 
           <div className={``}>
-            <p className={`my-2 text-xl font-semibold `}>
-              This Course Includes :
-            </p>
+            <p className={`my-2 text-xl font-semibold `}>Pre-Requisites</p>
             <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
               {course?.instructions?.map((item, i) => {
                 return (
@@ -100,7 +97,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
                     <BsFillCaretRightFill />
                     <span>{item}</span>
                   </p>
-                )
+                );
               })}
             </div>
           </div>
@@ -115,7 +112,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default CourseDetailsCard
+export default CourseDetailsCard;

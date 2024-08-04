@@ -1,0 +1,6 @@
+//disable react exhaustive deps
+{
+  "rules": {
+    "react-hooks/exhaustive-deps": "off"
+  }
+}

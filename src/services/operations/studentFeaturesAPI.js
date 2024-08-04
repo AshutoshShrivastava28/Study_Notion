@@ -64,9 +64,6 @@ export async function buyCourse(
       // Log the data for debugging purposes
       console.log("Order response data:", orderResponse.data);
 
-      // Assuming the order details are directly inside `orderResponse.data`
-      const orderData = orderResponse.data;
-
       // Ensure orderData contains the required properties
       if (orderResponse && orderResponse.data && orderResponse.data.success) {
         console.log("Order response data:", orderResponse.data);

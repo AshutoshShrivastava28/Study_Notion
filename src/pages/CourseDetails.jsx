@@ -33,7 +33,7 @@ function CourseDetails() {
   const [confirmationModal, setConfirmationModal] = useState(null)
   useEffect(() => {
     // Calling fetchCourseDetails fucntion to fetch the details
-    ;(async () => {
+    ; (async () => {
       try {
         const res = await fetchCourseDetails(courseId)
         // console.log("course details res: ", res)
@@ -62,7 +62,7 @@ function CourseDetails() {
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
-        : isActive.filter((e) => e != id)
+        : isActive.filter((e) => e !== id)
     )
   }
 
@@ -88,7 +88,7 @@ function CourseDetails() {
   }
 
   const {
-    _id: course_id,
+
     courseName,
     courseDescription,
     thumbnail,
